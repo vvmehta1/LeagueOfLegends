@@ -10,8 +10,8 @@ using System.Web.Http.OData;
 
 namespace LOL.WebAPI.Controllers
 {
-    //[EnableCorsAttribute("http://leaguelegends.azurewebsites.net", "*", "*")]
-    [EnableCorsAttribute("http://localhost:65503", "*", "*")]
+    [EnableCorsAttribute("http://leaguelegends.azurewebsites.net", "*", "*")]
+    //[EnableCorsAttribute("http://localhost:65503", "*", "*")]
     public class ChampionsController : ApiController
     {
         // GET: api/Champions
@@ -30,10 +30,19 @@ namespace LOL.WebAPI.Controllers
             return Champions;
         }
 
-        // GET: api/Champions/5
-        public string Get(int id)
+        // GET: api/Champions/summonerName
+        public IEnumerable<Player> Get(string summoner)
         {
-            return "value";
+            List<Player> Players = new List<Player>();
+            var repository = new DataRepository();
+            
+            if(!String.IsNullOrEmpty(summoner))
+            {
+                var result = repository.GetLiveData(summoner);
+                Players = result.Players;
+            }
+            
+            return Players;
         }
         
     }

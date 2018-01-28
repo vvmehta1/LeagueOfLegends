@@ -1,4 +1,5 @@
 ﻿
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace LOL.WebAPI.Models
@@ -9,7 +10,7 @@ namespace LOL.WebAPI.Models
         {
             Players = new List<Models.Player>();
         }
-
+        [JsonProperty(PropertyName = "players")]
         public List<Player> Players { get; set; }
 
         public bool HasErrors { get; set; }

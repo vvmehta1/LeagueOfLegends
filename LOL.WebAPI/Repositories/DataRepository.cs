@@ -13,7 +13,7 @@ namespace LOL.WebAPI.Repositories
     {
         string doc = HostingEnvironment.MapPath(@"~/App_Data/leaguedata.json");
 
-        string apiKey = "api_key=RGAPI-702bc8b2-8aba-4b3a-83f0-ce45fbd0d82f";
+        string apiKey = "api_key=RGAPI-ffefd0b2-f6d2-4f11-bae9-154a87925350";
         string url = "https://na1.api.riotgames.com/lol/";
 
         HttpWebRequest httpreq;
@@ -69,20 +69,7 @@ namespace LOL.WebAPI.Repositories
                     livePlayer.SummonerName = summoner.summonerName;
                     livePlayer.TeamId = summoner.teamId;
                     livePlayer.ChampionId = summoner.championId;
-
-                    var masteries = summoner.masteries;
-                    foreach (var mastery in masteries)
-                    {
-                        if (mastery.masteryId == 6241)
-                        {
-                            livePlayer.HasSumSpellCd = true;
-                        }
-                        if (mastery.masteryId == 6352)
-                        {
-                            livePlayer.HasCDCapIncrease = true;
-                        }
-                    }
-
+                    
                     resultObj.Players.Add(livePlayer);
                 }
             }

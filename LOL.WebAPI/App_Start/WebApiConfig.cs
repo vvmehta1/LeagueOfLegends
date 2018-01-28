@@ -18,8 +18,8 @@ namespace LOL.WebAPI
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{summoner}",
+                defaults: new { summoner = RouteParameter.Optional }
             );
         }
     }

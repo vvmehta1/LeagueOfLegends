@@ -14,19 +14,19 @@ namespace LOL.WebAPI.Controllers
     [EnableCorsAttribute("http://localhost:65503", "*", "*")]
     public class ChampionsController : ApiController
     {
+        public static List<Champion> Champions = new List<Champion>();
+
         // GET: api/Champions
         //[EnableQuery()]
         public IEnumerable<Champion> Get()
         {
             var repository = new DataRepository();
-            List<Champion> Champions = new List<Champion>();
 
-            var json = repository.GetMainData();
-            var champions = JsonConvert.DeserializeObject<RootObject>(json);
-
-            foreach (var champ in champions.Champions)
-                Champions.Add(champ.Value);
-
+            if(!(Champions.Count > 0))
+            {
+                LoadChampions(repository);
+            }
+            
             return Champions;
         }
 
@@ -40,9 +40,29 @@ namespace LOL.WebAPI.Controllers
             {
                 var result = repository.GetLiveData(summoner);
                 Players = result.Players;
-            }
-            
+
+                if(!(Champions.Count > 0))
+                {
+                    LoadChampions(repository);
+                }
+
+                foreach(var player in Players)
+                {
+                    // Load Champion
+                    player.Champion = Champions.FirstOrDefault(x => x.Id == player.ChampionId);
+                }
+
+            }           
             return Players;
+        }
+
+        private void LoadChampions(DataRepository repository)
+        {
+            var json = repository.GetMainData();
+            var champions = JsonConvert.DeserializeObject<RootObject>(json);
+
+            foreach (var champ in champions.Champions)
+                Champions.Add(champ.Value);
         }
         
     }

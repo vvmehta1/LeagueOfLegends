@@ -6,29 +6,12 @@ namespace LOL.WebAPI.Models
     {
         [JsonProperty(PropertyName = "summonername")]
         public string SummonerName { get; set; }
+        [JsonProperty(PropertyName = "teamid")]
         public long TeamId { get; set; }
-        public string NameExtraDetails
-        {
-            get
-            {
-                return $"Name: {SummonerName}\n-------------------\n";
-            }
-        }
         [JsonProperty(PropertyName = "championid")]
         public long ChampionId { get; set; }
+        [JsonProperty(PropertyName = "champion")]
         public Champion Champion { get; set; }
-        public string ChampionString
-        {
-            get
-            {
-                return Champion?.ToString();
-            }
-
-        }
         
-        public override string ToString()
-        {
-            return $"Name:      {SummonerName}, Team: {TeamId}, Champion:       {ChampionId}";
-        }
     }
 }

@@ -213,6 +213,7 @@
     <Compile Include="Interfaces\Repositories\IDataRepository.cs" />
     <Compile Include="Models\APIResult.cs" />
     <Compile Include="Models\Champion.cs" />
+    <Compile Include="Models\ChampionImage.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\RootObject.cs" />
     <Compile Include="Models\Spell.cs" />
@@ -251,6 +252,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Data\leaguedata.json" />
+    <Content Include="App_Data\imageData.json" />
     <None Include="Properties\PublishProfiles\LeagueLegendsWebAPI - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

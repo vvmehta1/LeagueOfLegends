@@ -11,7 +11,8 @@ namespace LOL.WebAPI.Repositories
 {
     public class DataRepository : IDataRepository
     {
-        string doc = HostingEnvironment.MapPath(@"~/App_Data/leaguedata.json");
+        //string doc = HostingEnvironment.MapPath(@"~/App_Data/leaguedata.json");
+        string doc = HostingEnvironment.MapPath(@"~/App_Data/imageData.json");
 
         string apiKey = "api_key=RGAPI-ffefd0b2-f6d2-4f11-bae9-154a87925350";
         string url = "https://na1.api.riotgames.com/lol/";

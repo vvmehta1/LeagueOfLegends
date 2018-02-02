@@ -14,6 +14,8 @@ namespace LOL.WebAPI.Models
         public int Id { get; set; }
         [JsonProperty(PropertyName = "spells")]
         public List<Spell> Spells { get; set; }
-
+        [JsonProperty(PropertyName = "image")]
+        public ChampionImage Image { get; set; }
+        
     }
 }

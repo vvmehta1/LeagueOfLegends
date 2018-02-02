@@ -10,8 +10,8 @@ using System.Web.Http.OData;
 
 namespace LOL.WebAPI.Controllers
 {
-    [EnableCorsAttribute("http://leaguelegends.azurewebsites.net", "*", "*")]
-    //[EnableCorsAttribute("http://localhost:65503", "*", "*")]
+    //[EnableCorsAttribute("http://leaguelegends.azurewebsites.net", "*", "*")]
+    [EnableCorsAttribute("http://localhost:53861", "*", "*")]
     public class ChampionsController : ApiController
     {
         // GET: api/Champions
